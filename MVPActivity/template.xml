@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="MVP Activity feature"
+    description="Create a new feature package with MVP pattern.">
+
+    <category value="Design Pattern" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <parameter
+        id="featureName"
+        name="Feature name"
+        type="string"
+        constraints="nonempty"
+        default="MVP"
+        help="The name of your new feature" />
+
+    <parameter
+        id="activityClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPActivity"
+        suggest="${extractLetters(featureName)?capitalize}Activity"
+        name="Activity class name" />
+
+    <parameter
+        id="includeActivityFactory"
+        name="Include activity factory methods?"
+        type="boolean"
+        default="true"
+        help="Generate static activity factory methods for easy instantiation" />
+
+    <parameter
+        id="activity_layout"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="activity_mvp"
+        suggest="activity_${extractLetters(featureName?lower_case)}"
+        name="Activity layout file name" />
+
+    <parameter
+        id="presenterClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPPresenter"
+        suggest="${extractLetters(featureName)?capitalize}Presenter"
+        name="Presenter class name" />
+
+    <parameter
+        id="contractClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPContract"
+        suggest="${extractLetters(featureName)?capitalize}Contract"
+        name="Contract class name" />
+
+    <parameter
+        id="moduleClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPModule"
+        suggest="${extractLetters(featureName)?capitalize}Module"
+        name="Module class name" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_mvp_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
