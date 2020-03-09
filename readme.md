@@ -9,6 +9,7 @@ This Android Studio feature allows to generate a bunch of files based on some pa
 ## Templates
 
 - [MVPActivity](https://github.com/bowserf/android-studio-templates/tree/master/MVPActivity)
+- [MVPFragment](https://github.com/bowserf/android-studio-templates/tree/master/MVPFragment)
 
 ## How to use a group templates
 
