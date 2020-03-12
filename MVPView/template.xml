@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="MVP View feature"
+    description="Create a new feature package with MVP pattern.">
+
+    <category value="Design Pattern" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <parameter
+        id="featureName"
+        name="Feature name"
+        type="string"
+        constraints="nonempty"
+        default="MVP"
+        help="The name of your new feature" />
+
+    <parameter
+        id="viewClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPFragment"
+        suggest="${extractLetters(featureName)?capitalize}View"
+        name="View class name" />
+
+    <parameter
+        id="view_layout"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="view_mvp"
+        suggest="view_${extractLetters(featureName?lower_case)}"
+        name="View layout file name" />
+
+    <parameter
+        id="presenterClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPPresenter"
+        suggest="${extractLetters(featureName)?capitalize}Presenter"
+        name="Presenter class name" />
+
+    <parameter
+        id="contractClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPContract"
+        suggest="${extractLetters(featureName)?capitalize}Contract"
+        name="Contract class name" />
+
+    <parameter
+        id="moduleClassName"
+        type="string"
+        constraints="nonempty|class|unique"
+        default="MVPModule"
+        suggest="${extractLetters(featureName)?capitalize}Module"
+        name="Module class name" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_mvp_view.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
