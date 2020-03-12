@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import ${getMaterialComponentName('android.support.annotation.NonNull ', useAndroidX)};
+import ${getMaterialComponentName('android.support.annotation.Nullable  ', useAndroidX)};
 import ${getMaterialComponentName('android.support.v4.app.Fragment', useAndroidX)};
 <#if applicationPackage??>
 import ${applicationPackage}.R;
@@ -24,7 +24,6 @@ public class ${fragmentClassName} extends Fragment implements ${contractClassNam
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        presenter = MvpModule.createPresenter();
         // TODO
     }
 
